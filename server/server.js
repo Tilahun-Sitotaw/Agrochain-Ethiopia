@@ -11,8 +11,7 @@ const errorHandler = require('./middleware/errorHandler');
 const rateLimiter = require('./middleware/rateLimiter');
 const transactionRoutes = require('./routes/transactionRoutes');
 const chatRoutes = require('./routes/chatRoutes');
-
-
+const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 connectDB();
 
@@ -26,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 // Serve uploads statically
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/transactions', transactionRoutes);
-
+app.use('/api/contact', contactRoutes);
 // Routes
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
